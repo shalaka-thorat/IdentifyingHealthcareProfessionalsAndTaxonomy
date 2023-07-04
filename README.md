@@ -13,19 +13,19 @@ TechGig Doceree Machine Learning Hackathon: Identifying Healthcare Professionals
 ▪ Furthermore, if the user is HCP, the model also provides the Taxonomy of HCP. The prediction files and their contents are as follows. <br>
 ▪ File Name: Doceree_HCP_Submission.csv <br>
 ▪ Columns:  <br>
-  o  ID: Key<br>
-  o IS_HCP: Indicates whether the user is Healthcare Professional (HCP) or not<br>
+  &emsp;&emsp;o  ID: Key<br>
+  &emsp;&emsp;o IS_HCP: Indicates whether the user is Healthcare Professional (HCP) or not<br>
 ▪ File Name: Doceree_Taxonomy_Submission.csv<br>
 ▪ Columns: <br>
-  o ID: Key<br>
-  o IS_HCP: Indicates whether the user is Healthcare Professional (HCP) or not<br>
-  o Taxonomy: Specialization code for HCP<br><br>
+  &emsp;&emsp;o ID: Key<br>
+  &emsp;&emsp;o IS_HCP: Indicates whether the user is Healthcare Professional (HCP) or not<br>
+  &emsp;&emsp;o Taxonomy: Specialization code for HCP<br><br>
 
 ## Approach:
-▪ Firstly, we import the train data and perform data analysis and pre-processing steps. We remove the data where the IS_HCP value is null, the Target column being null will not be useful for prediction. Later, we study each column and steps namely, null value identification and replacement, the importance of the column, and removing redundant columns.<br>
-▪ Depending on our study, we perform Feature Engineering such as, we create CIDRBLOCK and URLDOMAIN columns by leveraging data from BIDREQUESTIP and URL columns resp. We create a DEVICE column and try to find the device type using the USERAGENT column, where DEVICETYPE is Unknown. Furthermore, we perform Label Encoding, Building Train, and Validation Sets.<br>
+▪ Firstly, we import the train data and perform data analysis and pre-processing steps. We remove the data where the IS_HCP value is null, the Target column being null will not be useful for prediction. Later, we study each column and steps namely, null value identification and replacement, the importance of the column, and removing redundant columns.<br><br>
+▪ Depending on our study, we perform Feature Engineering such as, we create CIDRBLOCK and URLDOMAIN columns by leveraging data from BIDREQUESTIP and URL columns resp. We create a DEVICE column and try to find the device type using the USERAGENT column, where DEVICETYPE is Unknown. Furthermore, we perform Label Encoding, Building Train, and Validation Sets.<br><br>
 ▪ Next, we enter the Model Building phase, we choose 2 algorithms depending on data size, and speed: Decision Tree Algorithm and Random Forest Algorithm, and compare their accuracy performance. The Random Forest model outperforms, so we choose it as our Final Model. Finally, we import our test data and perform data transformation to 
-make the data suitable for the model, and get the predictions of whether the person is HCP or not.<br>
+make the data suitable for the model, and get the predictions of whether the person is HCP or not.<br><br>
 ▪ For Taxonomy prediction, we take a subset of Training data where IS_HCP is 1 and perform steps such as Data Analysis, Pre-processing, Label Encoding, and training our ML model. For Test Data Prediction, if IS_HCP is predicted as 1 by our HCP Prediction Model, it is further passed on for Taxonomy Prediction. We store all these predictions in a CSV file as ID, IS_HCP, and Taxonomy columns. <br><br>
 
 ## Output:
@@ -39,5 +39,5 @@ make the data suitable for the model, and get the predictions of whether the per
 ### Model Output stored in CSV File:
 <img src="https://github.com/shalaka-thorat/IdentifyingHealthcareProfessionalsAndTaxonomy/blob/main/Screenshots/Final%20HCP%20and%20Taxonomy%20Prediction%20File.PNG"><br><br><br>
 ### More Project Screenshots are <a href="https://github.com/shalaka-thorat/IdentifyingHealthcareProfessionalsAndTaxonomy/tree/main/Screenshots/">Here</a><br><br>
-### Input Files can be accessed <a href="">Here</a>
+### Training and Test Data Files can be accessed <a href="https://github.com/shalaka-thorat/IdentifyingHealthcareProfessionalsAndTaxonomy/blob/main/HCP%20Train-Test%20Data.zip">Here</a>
 
